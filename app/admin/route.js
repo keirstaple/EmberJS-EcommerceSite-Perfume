@@ -17,6 +17,11 @@ export default Ember.Route.extend({
         }
       });
       perfume.save();
+    },
+
+    destroyPerfume(perfume) {
+      perfume.destroyRecord();
+      this.transitionTo('admin');
     }
   }
 });

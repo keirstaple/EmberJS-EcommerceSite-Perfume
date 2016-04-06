@@ -1,0 +1,12 @@
+<form {{action 'addComment' on="submit"}}>
+  <label for="title">Title:</label>
+  {{input value=title id="title"}}
+
+  <label for="name">Name:</label>
+  {{input value=name id="name"}}
+
+  <label for="body">Comment:</label>
+  {{input value=body id="body"}}
+
+  <button type="submit">Submit Comment</button>
+</form>
