@@ -5,13 +5,13 @@ export default Ember.Route.extend({
     return this.get("session").fetch().catch(function() {});
   },
   actions: {
-    signIn: function(provider, params) {
+    signIn: function(params) {
       this.get("session").open("firebase", {
         provider: "password",
         email: params.email,
         password: params.password
     }).then(function(data) {
-        console.log(data.currentUser);
+      this.transitionTo('protected/new');
       });
     },
 

@@ -12,6 +12,10 @@ Router.map(function() {
   this.route('login');
   this.route('signup');
   this.route('user', {path: '/user/:user_id'});
+
+  this.authenticatedRoute('protected', function() {
+    this.route('new');
+  });
 });
 
 export default Router;

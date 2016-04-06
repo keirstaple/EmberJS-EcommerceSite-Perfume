@@ -1,1 +1,9 @@
-{{yield}}
+<form {{action 'signIn' on="submit"}}>
+  <label for="email">Email</label>
+  {{input value=email id="email"}}
+
+  <label for="password">Password</label>
+  {{input type="password" value=password id="password"}}
+
+  <button type="submit">Sign In</button>
+</form>
