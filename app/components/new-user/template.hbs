@@ -1,0 +1,9 @@
+<form>
+  <label for="email">email</label>
+  {{input value=email id="email"}}
+
+  <label for="password">password</label>
+  {{input value=password type='password' id="password"}}
+
+  <button {{action 'saveUser'}}>Join!</button>
+</form>

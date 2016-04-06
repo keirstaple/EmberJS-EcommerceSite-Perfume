@@ -1,4 +1,13 @@
+{{#if session.isAuthenticated}}
+<button {{action "signOut"}}>Sign out</button>
 {{#link-to 'admin'}}Admin{{/link-to}}
+{{shopbag-display}}
+{{outlet}}
+{{else}}
+{{#link-to 'login'}}Log in here{{/link-to }}
+{{#link-to 'signup'}}Sign up here{{/link-to }}
+{{/if}}
+
 
 {{#each model as |perfume|}}
   {{perfume-tile perfume=perfume}}
