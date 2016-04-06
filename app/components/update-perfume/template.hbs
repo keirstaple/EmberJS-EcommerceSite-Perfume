@@ -1,0 +1,25 @@
+<hr>
+<h1>Update: {{perfume.name}}</h1>
+<form >
+  <label for="name">Item Name</label>
+  {{input value=name class="name"}}
+
+  <label for="price">Item Price</label>
+  {{input value=price class="price"}}
+
+  <label for="size">Item Size</label>
+  {{input value=size class="size"}}
+
+  <label for="description">Item Description</label>
+  {{input value=description class="description"}}
+
+
+  <label for="image">Image URL</label>
+  {{input value=image class="image"}}
+
+  <label for="details">Item Details</label>
+  {{input value=details class="details"}}
+
+  <button {{action "updateItem" perfume}}>Submit</button>
+
+</form>
