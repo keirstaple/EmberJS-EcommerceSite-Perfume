@@ -9,8 +9,19 @@ export default Ember.Route.extend({
     addComment(params) {
       var newComment= this.store.createRecord('comment', params);
       var perfume = params.perfume;
-      perfume.get('comments').addObject(newComment);
+      console.log(perfume);
       newComment.save().then(function(){
+        perfume.get('comments').addObject(newComment);
+        return perfume.save();
+      });
+      this.transitionTo('perfume', params.perfume);
+    },
+
+    sendRating(params) {
+      var newRating = this.store.createRecord('rating', {value: params.rating});
+      var perfume = params.perfume;
+      newRating.save().then(function(){
+        perfume.get('ratings').addObject(newRating);
         return perfume.save();
       });
       this.transitionTo('perfume', params.perfume);

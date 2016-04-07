@@ -2,7 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.findAll('user');
+    return Ember.RSVP.hash({
+      users: this.store.findAll('user'),
+      carts: this.store.findAll('cart')
+    });
   },
   actions: {
     saveUser(params) {
@@ -23,13 +26,22 @@ export default Ember.Route.extend({
             default:
               alert("Error creating user:", error);
             }
-          } else {
+        } else {
 
-            var newUser = _this.store.createRecord('user', {id: userData.uid, email: params.email});
-            newUser.save();
+          var newUser = _this.store.createRecord('user', {id: userData.uid, email: params.email });
+
+          newUser.save().then(function(){
+            var newCart = _this.store.createRecord('cart', {});
+            newCart.save().then(function(){
+              newCart.get('user').addObject(newUser);
+              newCart.save();
+              newUser.get('cart').addObject(newCart);
+              return newUser.save();
+            });
             alert("Thanks, you're all signed up! Press OK to begin shopping.");
             _this.transitionTo('index');
-          }
+          });
+        }
       });
     }
   }

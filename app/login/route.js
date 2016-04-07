@@ -11,12 +11,8 @@ export default Ember.Route.extend({
         email: params.email,
         password: params.password
     }).then(function(data) {
-      this.transitionTo('protected/new');
+      this.transitionTo('index');
       });
-    },
-
-    signOut: function() {
-      this.get("session").close();
     }
   }
 });

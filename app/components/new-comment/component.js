@@ -12,6 +12,13 @@ export default Ember.Component.extend({
         perfume: this.get('perfume')
       };
       this.sendAction('addComment', params);
+    },
+    sendRating(perfume, num) {
+      var params = {
+        rating: num,
+        perfume: perfume
+      };
+    this.sendAction('sendRating', params);
     }
   }
 });

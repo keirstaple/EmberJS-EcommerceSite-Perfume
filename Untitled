@@ -1,0 +1,13 @@
+var newUser = _this.store.createRecord('user', {id: userData.uid, email: params.email });
+var newCart = _this.store.createRecord('cart', {});
+
+newUser.save().then(function(){
+  newCart.save().then(function(){
+    newCart.get('user').addObject(newUser);
+    newCart.save();
+    newUser.get('cart').addObject(newCart);
+    return newUser.save();
+  });
+  alert("Thanks, you're all signed up! Press OK to begin shopping.");
+  _this.transitionTo('index');
+});

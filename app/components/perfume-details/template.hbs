@@ -1,5 +1,4 @@
 {{#link-to 'index'}}Home{{/link-to}}
-
 <h1>{{perfume.name}}</h1>
 <p>${{perfume.price}}</p>
 <p>{{perfume.size}}</p>
@@ -7,4 +6,4 @@
 <h4>{{perfume.description}}</h4>
 <p>{{perfume.details}}</p>
 
-{{new-comment perfume=perfume addComment="addComment"}}
+{{new-comment perfume=perfume addComment="addComment" sendRating="sendRating"}}

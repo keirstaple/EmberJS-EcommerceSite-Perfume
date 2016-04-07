@@ -1,7 +1,8 @@
 {{#if session.isAuthenticated}}
+  {{log session.currentUser}}
   <button {{action "signOut"}}>Sign out</button>
   {{#link-to 'admin'}}Admin{{/link-to}}
-  {{shopbag-display}}
+  {{shopbag-display user=session.currentUser saveCart='saveCart'}}
 {{outlet}}
 {{else}}
   {{#link-to 'login'}}Log in here{{/link-to }}

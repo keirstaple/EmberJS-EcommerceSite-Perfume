@@ -1,6 +1,5 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  email: DS.attr(),
-  cart: DS.belongsTo('cart', {async: true})
+  value: DS.belongsTo('perfume', {async: true})
 });
