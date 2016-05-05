@@ -1,7 +1,6 @@
-# Wednes
+# EmberJS Ecommerce Site for Redwood-inspired Perfume
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This site allows users to shop for perfume and add items to their cart. The admin section allows administrators to add new inventory.
 
 ## Prerequisites
 
